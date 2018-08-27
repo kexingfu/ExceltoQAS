@@ -5,22 +5,17 @@ import win32clipboard as w
 import win32con
 
 #转换函数
-def exceltoqas(f):
-    # f = open("d:\\liebiao.txt",encoding='utf-8-sig')
-    ff = f.split('\n')
-    
+def exceltoqas(f):    
+    ff = f.split('\n')    
     ss = '|'
-    for line in ff:
-        
+    for line in ff:        
         ttt = re.split(r'[\s]+',line.strip())
         s = '|'
         for t in ttt:
             s = s + '|' + t
-        ss = ss + s + "\n"
-
-    print(ss)
+        ss = ss + s + "\n"   
+    # print(ss)
     return ss[0:-1]
-
 
 #获取剪切板内容
 def gettext():
@@ -40,17 +35,11 @@ def settext(aString):
 #点击按钮执行的方法
 def yijian():
     ijt = gettext()
-    
-
-
     ojt = exceltoqas(ijt)
- 
-
     settext(ojt.encode('GB2312'))   
 
 # GUI
 class Application(tkinter.Frame):
-
     # root = TK()
     def __init__(self, master=None):
         tkinter.Frame.__init__(self, master)
