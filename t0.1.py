@@ -14,8 +14,7 @@ def exceltoqas(f):
         flag = line[0]
         ttt = re.split(r'[\t]',line)
         s = '|'
-        if(flag == '\t'):
-            s = '||'
+
 
         for t in ttt:
             s = s + '|' + t
