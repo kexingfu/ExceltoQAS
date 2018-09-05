@@ -11,13 +11,16 @@ def exceltoqas(f):
     for line in ff: 
         co = line.count('\t') + 1  
         coo = 0    
-        ttt = re.split(r'[\t]',line.strip())
+        flag = line[0]
+        ttt = re.split(r'[\t]',line)
         s = '|'
+        if(flag == '\t'):
+            s = '||'
 
         for t in ttt:
             s = s + '|' + t
             coo = coo + 1
-        if(coo != co):
+        if(  flag != '\t' and coo != co):
             s = s + '|'
 
         ss = ss + s + "\n"   
@@ -29,7 +32,7 @@ def notetoqas(f):
     ff = f.split('\n')    
     ss = '|'
     for line in ff:        
-        ttt = re.split(r'[\s]+',line.strip())
+        ttt = re.split(r'[\s]+',line)
         s = '|'
         for t in ttt:
             s = s + '|' + t
