@@ -30,8 +30,9 @@ def exceltoqas(f):
 def notetoqas(f):    
     ff = f.split('\n')    
     ss = '|'
-    for line in ff:        
-        ttt = re.split(r'[\s]+',line)
+    for line in ff:
+        line = re.sub(r'\s{2,}', '  ', line)
+        ttt = line.split(' ')
         s = '|'
         for t in ttt:
             s = s + '|' + t
